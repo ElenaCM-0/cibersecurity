@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pages!</title>
+    </head>
+
+    <body>
+        {% if pages %}
+            <h5>Here are the pages that matched your query!</h5>
+        {% endif %}
+        
+
+        <ul>
+            {% for page in pages %}
+            <li> {{page.name}} </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

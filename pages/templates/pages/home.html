@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minimundo sites</title>
+    </head>
+
+    <body>
+
+    <h1>Minimundo sites</h1>
+
+    Hello, {{ user.username }}!
+
+		<h2>Your pages:</h2>
+    {% include "./pages.html" %}
+        
+    <form action='logout/' method="POST">
+    {% csrf_token %}
+          <input type="submit" value="Logout"/>
+      </form>
+    </body>
+</html>
