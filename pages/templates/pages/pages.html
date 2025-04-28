@@ -12,6 +12,25 @@
 
         <ul>
             {% for page in pages %}
+            <script inline="javascript">
+                // The URL to the application server that holds the tasks.
+                var url = '/tasks';
+            
+                function loadTasks() {
+                    var xmlHttp = new XMLHttpRequest();
+            
+                    xmlHttp.onreadystatechange = function() {
+                        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                            var response = JSON.parse(xmlHttp.responseText);
+                            
+                            response.tasks.forEach(task => {addTaskToList(task)})
+                        }
+                    }
+            
+                    xmlHttp.open("GET", url, true);
+                    xmlHttp.send(null);
+                }
+            </script>
             <li> {{page.name}} </li>
             {% endfor %}
         </ul>

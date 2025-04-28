@@ -10,6 +10,13 @@
 
     Hello, {{ user.username }}!
 
+    <h2>Create a form:</h2>
+    <form action="/homePage" method="post">
+      {% csrf_token %}
+      {{ createPageForm.as_p }}
+      <input type="submit" value="Submit">
+    </form>
+
 		<h2>Your pages:</h2>
     {% include "./pages.html" %}
         

@@ -5,8 +5,7 @@ from django.contrib.auth.models import User
 class minipage(models.Model):
 		
 	owner = models.ForeignKey(User, on_delete=models.CASCADE)
-	name = models.TextField()
-	image = models.TextField()
+	name = models.CharField(max_length=200, unique=True)
 	content = models.TextField()
 	
 	class Meta:
