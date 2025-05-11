@@ -6,7 +6,7 @@ urlpatterns = [
     path('', init, name='init'),
     path('search', search, name='search'),
     path('createUser', createUser, name='createUser'),
-    path('homePage', homePage, name='homePage'),
+    path('homePage/<str:username>', homePage, name='homePage'),
     path('pages/<str:name>', page, name='page'),
     path('snippet', snippet, name='snippet')
 ]

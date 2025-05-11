@@ -20,7 +20,12 @@
 		
         <h2>My pages!</h2>
 
-        <a href='/homePage'><button>Go to personal home page</button></a>
+        {% if user.is_authenticated %} 
+            <a href='/homePage/{{ user.username }}'>
+        {% else %}
+            <a href='/login/'>
+        {% endif %}
+        <button>Go to personal home page</button></a>
         
     </body>
 </html>

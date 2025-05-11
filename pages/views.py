@@ -26,7 +26,7 @@ def snippet(request):
 
 	response = requests.get(target_page)
 
-	return HttpResponse(response.content.decode[:300])
+	return HttpResponse(response.text[:300])
 
 def createUser(request):
 	# Create user
@@ -61,21 +61,28 @@ def page(request, name):
 	
 	return HttpResponse(template.render(context))
 
-@login_required
-def homePage(request):
+# @login_required
+def homePage(request, username):
 	# Visual of all of the user's pages
-	pages = minipage.objects.filter(owner = request.user)
+	user = User.objects.get(username=username)
+
+	# pages = minipage.objects.filter(owner = request.user)
+	pages = minipage.objects.filter(owner = user)
 
 	# if this is a POST request, process the form data
 	if request.method == "POST":
         # create a form instance and populate it with data from the request:
-		form = minipageForm(request.POST, user=request.user)
+		
+		# form = minipageForm(request.POST, user=request.user)
+		form = minipageForm(request.POST, user = user)
 		
 		if form.is_valid():
 			form.save()
 		
 	else:
-		form = minipageForm(user=request.user)
+		# form = minipageForm(user=request.user)
+
+		form = minipageForm(user = user)
 
 	return render(request, 'pages/home.html', {'pages': pages, 'createPageForm': form})
 	
