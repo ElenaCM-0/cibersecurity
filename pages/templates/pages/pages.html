@@ -8,7 +8,7 @@
         <ul>
             {% for page in pages %}
             <li> <b>{{page.name}}</b>: {{page.content|truncatechars:50}}</li>
-            <a href='/pages/{{page.name|urlencode }}'> <button>See page</button> </a>
+            <a href='/pages/{{page.name|urlencode }}/'> <button>See page</button> </a>
             {% endfor %}
         </ul>
     </body>

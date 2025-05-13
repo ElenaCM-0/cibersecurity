@@ -13,7 +13,7 @@
             <ul>
                 {% for page in pages %}    
                 <li> {{page.name}} 
-                <form action="/pages/{{page.name|urlencode}}/delete" method="post">
+                <form action="/pages/{{page.name|urlencode}}/delete/" method="post">
                 {% csrf_token %}
                 <button type="submit">Delete page</button>
                 </form>
@@ -26,5 +26,6 @@
     {% csrf_token %}
           <input type="submit" value="Logout"/>
     </form>
+    <a href='/'> <button>Back to start</button> </a>
     </body>
 </html>

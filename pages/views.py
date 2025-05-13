@@ -17,7 +17,7 @@ def init(request):
 	return render(request, 'pages/index.html', {"pages": pages})
 
 def newAccount(request):
-	# #1.3 return render(request, 'pages/newAccount.html', {"form" : UserCreationForm()})
+	# return render(request, 'pages/newAccount.html', {"form" : UserCreationForm()}) #1.3
 
 	return render(request, 'pages/newAccount.html') # #1.3 begin and end
 
@@ -30,7 +30,8 @@ def createUser(request):
 	# 
 	# # Validate password
 	# 
-	# if not form.isValid(): #3
+	# if not form.is_valid(): #2
+	# 	print(form)
 	# 	return render(request, 'pages/newAccount.html', {"form" : form})
 	# 
 	# new_user = form.save()
@@ -67,7 +68,7 @@ def page(request, name):
 
 	page = minipage.objects.get(name=name)
 
-	template = Template("<h1> {{name}} </h1>" + "{{ content|linebreaks }}")
+	template = Template("<h1> {{name}} </h1>" + "{{ content|linebreaks }}" + "<a href='/'> <button>Back to start</button> </a>")
 	context = Context({"content": page.content, "name" : page.name})
 	
 	return HttpResponse(template.render(context))
@@ -106,6 +107,7 @@ def homePage(request, username):
 		
 		if form.is_valid():
 			form.save()
+			form = minipageForm(user = user)
 		
 	else:
 		form = minipageForm(user = user)

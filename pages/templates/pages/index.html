@@ -10,7 +10,7 @@
         {% if user.is_authenticated %}Hello, {{ user.username }}.{% endif %}
 
 		<h2>Search for pages:</h2>
-        <form action="/search" method="POST">
+        <form action="/search/" method="POST">
             {% csrf_token %}
             <input type="text" name="key"/>
             <input type="submit"/>
@@ -25,7 +25,7 @@
         <h2>My minimundo</h2>
 
         {% if user.is_authenticated %} 
-            <a href='/homePage/{{ user.username }}'>
+            <a href='/homePage/{{ user.username|urlencode }}/'>
         {% else %}
             <a href='/login/'>
         {% endif %}
