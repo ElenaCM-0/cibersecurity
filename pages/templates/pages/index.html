@@ -16,9 +16,13 @@
             <input type="submit"/>
         </form>
 
-        {% include "./pages.html" %}
+        {% if no_results %} 
+            Sorry, there were no results for {{query}}!
+        {% else %}
+            {% include "./pages.html" %}
+        {% endif %}
 		
-        <h2>My pages!</h2>
+        <h2>My minimundo</h2>
 
         {% if user.is_authenticated %} 
             <a href='/homePage/{{ user.username }}'>

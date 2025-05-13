@@ -16,20 +16,7 @@
        
     <h2>Create new account</h2>
 
-    <form action="/createUser" method="post">
-      {% csrf_token %}
-      Name:
-      <input type="text" name="username"/>
-      Password:
-      <input type="password" name="password"/>
-      <button type="submit">Create account</button>
-    </form>
-
-    <!--
-    
-    -->
-
-    {{ message }}
+    <a href='/newAccount'> <button>Create account</button> </a>
     
     </body>
 </html>

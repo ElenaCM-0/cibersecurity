@@ -5,35 +5,10 @@
     </head>
 
     <body>
-        {% if pages %}
-            <h5>Here are the pages that matched your query!</h5>
-        {% endif %}
-        
-
         <ul>
             {% for page in pages %}
-            <!-- 
-            <script inline="javascript">
-                // The URL to the application server that holds the tasks.
-                var url = '/tasks';
-            
-                function loadTasks() {
-                    var xmlHttp = new XMLHttpRequest();
-            
-                    xmlHttp.onreadystatechange = function() {
-                        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                            var response = JSON.parse(xmlHttp.responseText);
-                            
-                            response.tasks.forEach(task => {addTaskToList(task)})
-                        }
-                    }
-            
-                    xmlHttp.open("GET", url, true);
-                    xmlHttp.send(null);
-                }
-            </script>
-            -->
-            <li> {{page.name}} </li>
+            <li> <b>{{page.name}}</b>: {{page.content|truncatechars:50}}</li>
+            <a href='/pages/{{page.name|urlencode }}'> <button>See page</button> </a>
             {% endfor %}
         </ul>
     </body>

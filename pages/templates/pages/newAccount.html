@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minimundo sites</title>
+    </head>
+
+    <body>
+
+    <h2>Create new account</h2>
+
+    <!--
+    #1.1 begin
+    -->
+    <form action="/createUser" method="get">
+      Name:
+      <input type="text" name="username"/>
+      Password:
+      <input type="password" name="password"/>
+      <button type="submit">Create account</button>
+    </form>
+    <!--
+    #1.1 end
+    -->
+
+    <!--
+    #1.1
+    <form action="/createUser" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Create account</button>
+    </form>
+    -->
+
+    {{ message }}
+    
+    </body>
+</html>

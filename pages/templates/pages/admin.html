@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minimundo sites</title>
+    </head>
+
+    <body>
+        <h1>Minimundo sites</h1>
+		
+        <ul>
+            {% for user, pages in users.items %}
+            <li> {{user.username}} </li>
+            <ul>
+                {% for page in pages %}    
+                <li> {{page.name}} 
+                <form action="/pages/{{page.name|urlencode}}/delete" method="post">
+                {% csrf_token %}
+                <button type="submit">Delete page</button>
+                </form>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </ul>
+    <form action='/logout/' method="POST">
+    {% csrf_token %}
+          <input type="submit" value="Logout"/>
+    </form>
+    </body>
+</html>
