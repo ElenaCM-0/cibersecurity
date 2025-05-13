@@ -17,9 +17,9 @@ def init(request):
 	return render(request, 'pages/index.html', {"pages": pages})
 
 def newAccount(request):
-	# return render(request, 'pages/newAccount.html', {"form" : UserCreationForm()}) #1.3
+	return render(request, 'pages/newAccount.html', {"form" : UserCreationForm()}) #1.3
 
-	return render(request, 'pages/newAccount.html') # #1.3 begin and end
+	# return render(request, 'pages/newAccount.html') # #1.3 begin and end
 
 def createUser(request):
 	# #1.2
@@ -31,7 +31,6 @@ def createUser(request):
 	# # Validate password
 	# 
 	# if not form.is_valid(): #2
-	# 	print(form)
 	# 	return render(request, 'pages/newAccount.html', {"form" : form})
 	# 
 	# new_user = form.save()
@@ -56,7 +55,7 @@ def createUser(request):
 
 	login(request, new_user)
 
-	return render(request, 'pages/index.html')
+	return redirect('/')
 	# #1.2 end
 
 def page(request, name):
