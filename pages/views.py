@@ -17,9 +17,9 @@ def init(request):
 	return render(request, 'pages/index.html', {"pages": pages})
 
 def newAccount(request):
-	return render(request, 'pages/newAccount.html', {"form" : UserCreationForm()}) #1.3
+	# return render(request, 'pages/newAccount.html', {"form" : UserCreationForm()}) #1.3
 
-	# return render(request, 'pages/newAccount.html') # #1.3 begin and end
+	return render(request, 'pages/newAccount.html') # #1.3 begin and end
 
 def createUser(request):
 	# #1.2
