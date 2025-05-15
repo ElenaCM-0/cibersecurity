@@ -135,8 +135,10 @@ def search(request):
 	# #3.1 begin
 
 	conn = sqlite3.connect('db.sqlite3').cursor()
+
+	conn.row_factory = sqlite3.Row
 	
-	pages = conn.execute("SELECT owner_id,content FROM minipage WHERE name LIKE '%" + key + "%'").fetchall()
+	pages = conn.execute("SELECT * FROM minipage WHERE name LIKE '%" + key + "%'").fetchall()
 
 	# #3.1 end
 
