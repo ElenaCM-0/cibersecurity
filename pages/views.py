@@ -132,22 +132,19 @@ def search(request):
 
 	# Find page in database
 
-
 	# #3.1 begin
 
 	conn = sqlite3.connect('db.sqlite3').cursor()
 	
-	pages = conn.execute("SELECT * FROM minipage WHERE name LIKE '%" + key + "%'")
-	size = pages.rowcount
+	pages = conn.execute("SELECT owner_id,content FROM minipage WHERE name LIKE '%" + key + "%'").fetchall()
 
 	# #3.1 end
 
 	# #3.1
 	# pages = minipage.objects.filter(name__contains=key) 
-	# size = len(pages)
 
 	# Render the appropiate page
-	if size <= 0:
+	if len(pages) <= 0:
 		return render(request, 'pages/index.html', {'no_results': True, 'query': key})
 
 	return render(request, 'pages/index.html', {'pages': pages})
