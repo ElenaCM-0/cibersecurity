@@ -91,7 +91,7 @@ def deletePage(request, name):
 def homePage(request, username):
 	# Visual of all of the user's pages
 	user = User.objects.get(username=username) #4.2 begin and end
-	# #4.2 user = request.user
+	# user = request.user #4.2
 
 	# #5.2
 	# if user.is_superuser:
