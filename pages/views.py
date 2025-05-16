@@ -55,7 +55,7 @@ def createUser(request):
 
 	login(request, new_user)
 
-	return redirect('/')
+	return render(request, 'pages/index.html', {"pages": minipage.objects.filter()})
 	# #1.2 end
 
 def page(request, name):
