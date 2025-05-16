@@ -37,7 +37,7 @@ def createUser(request):
 	# 
 	# login(request, new_user)
 	# 
-	# return render(request, 'pages/index.html')
+	# return render(request, 'pages/index.html', {"pages": minipage.objects.filter()})
 
 	# #1.2 begin
 	# Create user
